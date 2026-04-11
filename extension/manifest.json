@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Wordle Hints",
+  "version": "1.0.0",
+  "description": "Auto-displays entropy-based hints while playing NYT Wordle",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.nytimes.com/games/wordle/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.nytimes.com/games/wordle/*"],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["worker.js", "solver.js", "words.js"],
+      "matches": ["https://www.nytimes.com/games/wordle/*"]
+    }
+  ]
+}
