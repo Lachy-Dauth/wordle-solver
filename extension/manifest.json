@@ -22,7 +22,7 @@
   "web_accessible_resources": [
     {
       "resources": ["worker.js", "solver.js", "words.js"],
-      "matches": ["https://www.nytimes.com/games/wordle/*"]
+      "matches": ["https://www.nytimes.com/*"]
     }
   ]
 }
