@@ -1,0 +1,249 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  --green: #537D4E;
+  --yellow: #B59F3B; 
+  --background: #19191b;
+  --white: #E0E0E0;
+  --grey: #404044;
+  --light-grey: #808282;
+}
+
+body, html {
+  height: 100%;
+  font-family: "nyt-franklin", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+#board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+#container {
+  display: grid;
+  min-width: 100vw;
+  min-height: 100%;
+  grid-template-columns: 1fr 500px 1fr;
+  background-color: var(--background);
+}
+
+.ad-container {
+  padding: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  #container {
+    grid-template-columns: 0fr 1fr 0fr;
+  }
+  .ad-container {
+    content: none;
+    padding: 3px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--grey);
+  margin-bottom: 0.4rem;
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#title {
+  color: var(--white);
+  padding: 0.4rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.square {
+  font-weight: 700;
+  aspect-ratio: 1 / 1;
+  min-width: 60px;
+  font-size: 45px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  border: 2px solid var(--grey);
+  text-transform: capitalize;
+}
+
+@media screen and (max-height: 800px) {
+  .square {
+    min-width: 45px;
+    font-size: 30px;
+  }
+}
+
+#board {
+  padding: 10px;
+  display: grid;
+  gap: 5px;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.row {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#game {
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+#keyboard-container {
+  height: 200px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0px auto 8px;
+  touch-action: manipulation;
+}
+
+.keyboard-row button {
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  padding: 0px;
+  height: 58px;
+  color: var(--white);
+  background-color: var(--light-grey);
+  flex-grow: 1;
+  margin: 0px 4px 0px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+button.wide-button {
+  flex-grow: 1.5;
+}
+
+.spacer-half {
+  flex-grow: 0.5;
+}
+
+.grey {
+  border: none;
+  background-color: var(--grey) !important;
+}
+
+.yellow {
+  border: none;
+  background-color: var(--yellow) !important;
+}
+
+.green {
+  border: none;
+  background-color: var(--green) !important;
+}
+
+/* Vanilla CSS Icons to replace FontAwesome */
+.icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icon-close {
+  position: relative;
+}
+
+.icon-close::before,
+.icon-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background-color: currentColor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.icon-question {
+  position: relative;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-question::before {
+  content: '?';
+}
+
+.icon-refresh {
+  position: relative;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.icon-refresh::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid currentColor;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.icon-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.icon-menu::before,
+.icon-menu::after {
+  content: '';
+  width: 60%;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.icon-menu {
+  background: linear-gradient(currentColor, currentColor) center/60% 2px no-repeat;
+}

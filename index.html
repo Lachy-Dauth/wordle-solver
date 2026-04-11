@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CS3G16HP6X');
+  </script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Solver</title>
+
+  <script src="./shared.js"></script>
+  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="loader-container loader-container-hidden">
+    <div class="spinner"></div>
+  </div>
+  <div id="info-placeholder" data-content="To use this solver type in the word you put in to wordle. Then click on the squares to toggle their color until they match what you got in wordle. Then press enter to calculate the next best words."></div>
+  <div id="container">
+    <div id="game">
+
+      <div id="header-placeholder" 
+           data-title="Wordle Solver"
+           data-left='<i class="icon icon-question" id="info-button" onclick="toggleInfo()">?</i>'
+           data-right='<a class="icon icon-refresh" href="./">↻</a><a class="icon icon-menu" href="./menu.html">≡</a>'>
+      </div>
+
+      <div id="board-placeholder"></div>
+
+      <div id="keyboard-placeholder"></div>
+
+    </div>
+    <div id="suggestions">
+      <header>
+        <h2>Suggestions</h2>
+        <button class="btn" onclick="toggleHard()">toggle hard mode</button>
+      </header>
+      <ol id="suggestion-list"></ol>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>

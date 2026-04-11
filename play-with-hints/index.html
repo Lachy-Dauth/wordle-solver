@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CS3G16HP6X');
+  </script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle With Hints</title>
+
+  <script src="../shared.js"></script>
+  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="loader-container loader-container-hidden">
+    <div class="spinner"></div>
+  </div>
+  <div id="info-placeholder" data-content="Use this wordle tools as you would regular wordle" data-extra='<p><strong>Important</strong> - This solver can take up to 2 minutes to compute the suggestion list. In that time you may see a pop up saying the page is unresponsive <strong>Do Not</strong> close the page, press Wait instead.</p>'></div>
+  <div id="container">
+    <div id="game">
+
+      <div id="header-placeholder" 
+           data-title="Wordle With Hints"
+           data-left='<i class="icon icon-question" id="info-button" onclick="toggleInfo();">?</i>'
+           data-right='<a class="icon icon-refresh" href="./">↻</a><a class="icon icon-menu" href="../menu.html">≡</a>'>
+      </div>
+
+      <div id="board-placeholder"></div>
+
+      <div id="keyboard-placeholder"></div>
+
+    </div>
+    <div id="suggestions">
+      <header><h2>Suggestions</h2></header>
+      <ol id="suggestion-list"></ol>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>
