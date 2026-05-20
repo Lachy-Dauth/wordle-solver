@@ -120,8 +120,6 @@ function createAnalyticsScripts() {
 // Shared JavaScript functions
 
 // Create game board squares (shared across multiple files)
-
-// Create game board squares (shared across multiple files)
 function createSquares() {
   const gameBoard = document.querySelector("#board");
 
