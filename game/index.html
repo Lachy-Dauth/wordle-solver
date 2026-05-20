@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
+  <!-- Cookie consent: set Google Consent Mode v2 defaults BEFORE gtag/AdSense load -->
   <script>
+    window.__cookieConfig = { hasAds: true };
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-CS3G16HP6X');
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    try {
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+      }
+    } catch (e) {}
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-CS3G16HP6X', { anonymize_ip: true });
+  </script>
+  <!-- Google AdSense (respects Consent Mode v2 ad_storage signal) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4934267210788799"
   crossorigin="anonymous"></script>
   <link
@@ -22,6 +46,7 @@
 
   <script src="../shared.js"></script>
   <script src="./main.js" defer></script>
+  <script src="../cookie-consent.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>

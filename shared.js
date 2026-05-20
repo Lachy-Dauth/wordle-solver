@@ -83,20 +83,43 @@ function createBoardContainer() {
   `;
 }
 
-// Create common tracking scripts
+// Create common tracking scripts (Google Consent Mode v2 aware)
 function createAnalyticsScripts() {
   return `
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      try {
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted'
+          });
+        }
+      } catch (e) {}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CS3G16HP6X"></script>
+    <script>
       gtag('js', new Date());
-      gtag('config', 'G-CS3G16HP6X');
+      gtag('config', 'G-CS3G16HP6X', { anonymize_ip: true });
     </script>
   `;
 }
 
 // Shared JavaScript functions
+
+// Create game board squares (shared across multiple files)
 
 // Create game board squares (shared across multiple files)
 function createSquares() {
